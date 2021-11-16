@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AddPage from "./components/AddPage";
+import Doctors from "./components/Doctors";
+import Header from "./components/Header";
+import NavBar from "./components/NavBar";
+import Patients from "./components/Patients";
 
 function App() {
+  const [doctors, setDoctors] = useState([])
+  const [patients, setPatients] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:9292/doctors')
+    .then(r => r.json())
+    .then(data => {
+      setDoctors(data)
+    });
+    fetch('http://localhost:9292/patients')
+    .then(r => r.json())
+    .then(data => {
+      setPatients(data)
+    })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+        <BrowserRouter>
+        <NavBar />
+          <Routes>
+            <Route path='/doctors' element={<Doctors doctors={doctors} />} />
+            <Route path='/patients' element={<Patients patients={patients} doctors={doctors} />} />
+            <Route path='/add' element={<AddPage />} />
+          </Routes>
+        </BrowserRouter>
     </div>
   );
 }
