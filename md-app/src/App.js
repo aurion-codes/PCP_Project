@@ -136,9 +136,10 @@ function App() {
       body: JSON.stringify(patientData)
     }).then(r => r.json())
     .then(data => {
-      const idx = displayPatients.filter(item => item.id === patientData.id)
+      const idx = displayPatients.findIndex(item => item.id === patientData.id)
       const tempPatients = [...displayPatients]
       tempPatients[idx] = data
+      console.log(tempPatients)
       setDisplayPatients(tempPatients)
       setPatient(tempPatients[idx])
       let doctor = doctors.find(doctor => doctor.id === tempPatients[idx].doctor_id)
@@ -183,7 +184,17 @@ function App() {
                 setEditing={setEditing} 
               />} 
             />
-            <Route path='/add' element={<AddPage patientData={patientData} handlePatientForm={handlePatientForm} handlePatientSubmit={handlePatientSubmit} doctorData={doctorData} handleDoctorForm={handleDoctorForm} handleDoctorSubmit={handleDoctorSubmit} doctors={displayDoctors} />} />
+            <Route path='/add' element={
+              <AddPage 
+                patientData={patientData} 
+                handlePatientForm={handlePatientForm} 
+                handlePatientSubmit={handlePatientSubmit} 
+                doctorData={doctorData} 
+                handleDoctorForm={handleDoctorForm} 
+                handleDoctorSubmit={handleDoctorSubmit} 
+                doctors={displayDoctors} 
+              />} 
+            />
           </Routes>
         </BrowserRouter>
     </div>

@@ -2,7 +2,7 @@ import { useState } from "react"
 import PatientCard from "./PatientCard"
 
 function Patients({patient, setPatient, patients, myDoctor, setMyDoctor, doctors, handlePatientDelete, handlePatientForm, handlePatientEdit, setPatientData, patientData, editing, setEditing}) {
-    const patientList = patients.map(patient => {
+    let patientList = patients.map(patient => {
         return <li key={patient.id} onClick={() => handleClick(patient)} >{patient.first_name} {patient.last_name}</li>
     })
     const [clicked, setClicked] = useState(false)
