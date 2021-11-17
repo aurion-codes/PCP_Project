@@ -14,7 +14,7 @@ function DoctorForm({doctorData, handleDoctorForm, handleDoctorSubmit}) {
                 Specialty:
                 <textarea value={doctorData.specialty} name="specialty" onChange={handleDoctorForm} />
             </label>
-            <input type="submit" value="Add Doctor" />
+            <input type="submit" value="Submit" />
         </form>
     </>
     )

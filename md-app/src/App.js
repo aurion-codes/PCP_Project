@@ -14,6 +14,7 @@ function App() {
   const [defaultDoc, setDefaultDoc] = useState("")
   const [editing, setEditing] = useState(false)
   const [patient, setPatient] = useState(null)
+  const [doctor, setDoctor] = useState(null)
   const [myDoctor, setMyDoctor] = useState(null)
   const [patientData, setPatientData] = useState({
     first_name: "",
@@ -139,7 +140,6 @@ function App() {
       const idx = displayPatients.findIndex(item => item.id === patientData.id)
       const tempPatients = [...displayPatients]
       tempPatients[idx] = data
-      console.log(tempPatients)
       setDisplayPatients(tempPatients)
       setPatient(tempPatients[idx])
       let doctor = doctors.find(doctor => doctor.id === tempPatients[idx].doctor_id)
@@ -154,6 +154,30 @@ function App() {
     })
   }
 
+  function handleDoctorEdit(e) {
+    e.preventDefault()
+    fetch(`http://localhost:9292/doctors/${doctorData.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify(doctorData)
+    }).then(r => r.json())
+    .then(data => {
+      const idx = displayDoctors.findIndex(item => item.id === doctorData.id)
+      const tempDoctors = [...displayDoctors]
+      tempDoctors[idx] = data
+      setDisplayDoctors(tempDoctors)
+      setDoctor(tempDoctors[idx])
+      setDoctorData({
+        first_name: "",
+        last_name: "",
+        specialty: ""
+      })
+      setEditing(false)
+    })
+  }
+
 
   return (
     <div>
@@ -163,8 +187,16 @@ function App() {
           <Routes>
             <Route path='/doctors' element={
               <Doctors 
+                doctor={doctor}
+                setDoctor={setDoctor}
                 doctors={displayDoctors} 
-                handleDoctorDelete={handleDoctorDelete} 
+                handleDoctorDelete={handleDoctorDelete}
+                doctorData={doctorData}
+                handleDoctorForm={handleDoctorForm}
+                handleDoctorEdit={handleDoctorEdit}
+                setEditing={setEditing}
+                setDoctorData={setDoctorData}
+                editing={editing}
               />} 
             />
             <Route path='/patients' element={
