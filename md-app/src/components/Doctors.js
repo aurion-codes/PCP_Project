@@ -30,6 +30,7 @@ function Doctors({doctor, setDoctor, doctors, handleDoctorDelete, doctorData, ha
     return (
         <>
             <ul style={listStyles}>
+                <h1 style={{marginTop: "1px"}}>Doctors:</h1>
                 {doctorList}
             </ul>
             {clicked ? 

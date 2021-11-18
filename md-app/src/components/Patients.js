@@ -34,6 +34,7 @@ function Patients({patient, setPatient, patients, myDoctor, setMyDoctor, doctors
     return (
         <>
             <ul style={listStyles} >
+                <h1 style={{marginTop: "1px"}}>Patients:</h1>
                 {patientList}
             </ul>
             {clicked ? 
