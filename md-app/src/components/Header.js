@@ -1,8 +1,16 @@
+import logo from "../images/DBMDlogo.png";
+
+const imgStyle = {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "50px"
+}
+
 function Header() {
     return (
-        <>
-            <img src="../images/DBMDLogo.png" />
-        </>
+        <div style={imgStyle}>
+            <img src={logo} alt="logo" />
+        </div>
     )
 }
 

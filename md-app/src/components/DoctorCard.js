@@ -23,7 +23,9 @@ const doctorInfoCard = {
   border: `solid 5px #121592`,
   borderRadius: `40px`,
   height: `60%`,
-  width: `80%`,
+  width: `500px`,
   padding: `25px`,
-  marginTop: `50px`
+  marginTop: `50px`,
+  marginLeft: "auto",
+  marginRight: "auto"
 }
