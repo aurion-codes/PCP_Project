@@ -214,7 +214,7 @@ function App() {
                 setPatientData={setPatientData} 
                 patientData={patientData}
                 editing={editing}
-                setEditing={setEditing} 
+                setEditing={setEditing}
               />} 
             />
             <Route path='/add' element={

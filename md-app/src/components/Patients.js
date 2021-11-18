@@ -28,7 +28,14 @@ function Patients({patient, setPatient, patients, myDoctor, setMyDoctor, doctors
         setClicked(true)
         setPatient(patient)
         let doctor = doctors.find(doctor => doctor.id === patient.doctor_id)
-        setMyDoctor(doctor)
+        if (doctor === undefined) {
+            setMyDoctor({
+                first_name: "N/A",
+                last_name: "(Please Edit!)"
+            })
+        } else {
+            setMyDoctor(doctor)
+        }
     }
 
     return (
