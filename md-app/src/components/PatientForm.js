@@ -19,7 +19,7 @@ function PatientForm({patientData, handlePatientForm, handlePatientSubmit, docto
                     <input type="text" value={patientData.last_name} name="last_name" onChange={handlePatientForm} />
                 </label>
                 <label>
-                    Medical History:<br />
+                    Current Diagnoses:<br />
                     <textarea value={patientData.patient_history} name="patient_history" onChange={handlePatientForm} />
                 </label>
                 <label>

@@ -6,8 +6,8 @@ function PatientCard({patient, doctor, handlePatientDelete, setClicked, handlePa
         <div style={patientInfoCard}>
             {editing ? <PatientForm patientData={patientData} handlePatientForm={handlePatientForm} handlePatientSubmit={handlePatientEdit} doctors={doctors} /> : <>
             <h1>{patient.first_name} {patient.last_name}</h1>
-            <h3>{`${doctor.first_name} ${doctor.last_name}`}</h3>
-            <p>{patient.patient_history}</p>
+            <h3>Physician: Dr. {`${doctor.first_name} ${doctor.last_name}`}</h3>
+            <p>Current Diagnoses: {patient.patient_history}</p>
             <button onClick={() => {setEditing(true); setPatientData(patient)}}>Edit Patient</button>
             <button onClick={() => {handlePatientDelete(patient); setClicked(false)}}>Delete Patient</button>
             </>}

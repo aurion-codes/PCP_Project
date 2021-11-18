@@ -7,8 +7,8 @@ function DoctorCard({doctor, setClicked, handleDoctorDelete, doctorData, handleD
             {editing ? <DoctorForm doctorData={doctorData} handleDoctorForm={handleDoctorForm} handleDoctorSubmit={handleDoctorEdit} /> 
             :
             <>
-                <h1>{doctor.first_name} {doctor.last_name}</h1>
-                <h2>{doctor.specialty}</h2>
+                <h1>Dr. {doctor.first_name} {doctor.last_name}</h1>
+                <h2>Department: {doctor.specialty}</h2>
                 <button onClick={() => {setEditing(true); setDoctorData(doctor)}}>Edit Doctor</button>
                 <button onClick={() => {handleDoctorDelete(doctor); setClicked(false)}}>Delete Doctor</button>
                 </>
