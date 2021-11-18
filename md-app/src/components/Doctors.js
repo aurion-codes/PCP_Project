@@ -18,7 +18,7 @@ const listItemStyles = {
 }
 
 function Doctors({doctor, setDoctor, doctors, handleDoctorDelete, doctorData, handleDoctorForm, handleDoctorEdit, setEditing, setDoctorData, editing}) {
-    const doctorList = doctors.map(doctor => {return <li className="listItem" style={listItemStyles} key={doctor.id} onClick={() => handleClick(doctor)}>{doctor.first_name} {doctor.last_name}</li>})
+    const doctorList = doctors.map(doctor => {return <li className="listItem" style={listItemStyles} key={doctor.id} onClick={() => {handleClick(doctor); setEditing(false)}}>{doctor.first_name} {doctor.last_name}</li>})
     const [clicked, setClicked] = useState(false)
     
     function handleClick(doctor) {

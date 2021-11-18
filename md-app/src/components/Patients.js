@@ -19,7 +19,7 @@ const listItemStyles = {
 
 function Patients({patient, setPatient, patients, myDoctor, setMyDoctor, doctors, handlePatientDelete, handlePatientForm, handlePatientEdit, setPatientData, patientData, editing, setEditing}) {
     let patientList = patients.map(patient => {
-        return <li className="listItem" style={listItemStyles} key={patient.id} onClick={() => handleClick(patient)} >{patient.first_name} {patient.last_name}</li>
+        return <li className="listItem" style={listItemStyles} key={patient.id} onClick={() => {handleClick(patient); setEditing(false)}} >{patient.first_name} {patient.last_name}</li>
     })
     const [clicked, setClicked] = useState(false)
 
