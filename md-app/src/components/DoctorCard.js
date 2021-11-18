@@ -21,11 +21,13 @@ export default DoctorCard
 
 const doctorInfoCard = {
   border: `solid 5px #121592`,
+  backgroundColor: `#b6e1fc`,
   borderRadius: `40px`,
   height: `60%`,
   width: `500px`,
   padding: `25px`,
   marginTop: `50px`,
   marginLeft: "auto",
-  marginRight: "auto"
+  marginRight: "auto",
+  boxShadow: `8px 8px 10px #121592`
 }

@@ -3,12 +3,13 @@ import DoctorCard from "./DoctorCard"
 
 const listStyles = {
     listStyleType: "none",
-    background: "lightblue",
+    background: "#b6e1fc",
     width: "300px",
     marginLeft:"100px",
     padding: "10px",
-    border: "none",
-    borderRadius: "10px"
+    border: `solid 2px #121592`,
+    borderRadius: "10px",
+    boxShadow: `3px 3px 5px #121592`
 }
 
 const listItemStyles = {
