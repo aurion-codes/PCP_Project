@@ -1,9 +1,25 @@
 import { useState } from "react"
 import PatientCard from "./PatientCard"
 
+const listStyles = {
+    listStyleType: "none",
+    background: "lightblue",
+    width: "300px",
+    marginLeft:"100px",
+    padding: "10px",
+    border: "none",
+    borderRadius: "10px"
+}
+
+const listItemStyles = {
+    marginBottom: "5px",
+    marginLeft: "20px",
+    width: "300px"
+}
+
 function Patients({patient, setPatient, patients, myDoctor, setMyDoctor, doctors, handlePatientDelete, handlePatientForm, handlePatientEdit, setPatientData, patientData, editing, setEditing}) {
     let patientList = patients.map(patient => {
-        return <li key={patient.id} onClick={() => handleClick(patient)} >{patient.first_name} {patient.last_name}</li>
+        return <li className="listItem" style={listItemStyles} key={patient.id} onClick={() => handleClick(patient)} >{patient.first_name} {patient.last_name}</li>
     })
     const [clicked, setClicked] = useState(false)
 
@@ -16,7 +32,7 @@ function Patients({patient, setPatient, patients, myDoctor, setMyDoctor, doctors
 
     return (
         <>
-            <ul>
+            <ul style={listStyles} >
                 {patientList}
             </ul>
             {clicked ? 

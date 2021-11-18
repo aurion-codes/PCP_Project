@@ -1,20 +1,28 @@
+const formStyles = {
+    display: "flex",
+    flexDirection: "column",
+    height: "300px",
+    maxWidth: "500px",
+    justifyContent: "space-around"
+}
+
 function DoctorForm({doctorData, handleDoctorForm, handleDoctorSubmit}) {
     return (
         <>
-        <form onSubmit={handleDoctorSubmit}>
+        <form style={formStyles} onSubmit={handleDoctorSubmit}>
             <label>
-                First Name:
+                First Name:<br />
                 <input type="text" value={doctorData.first_name} name="first_name" onChange={handleDoctorForm} />
             </label>
             <label>
-                Last Name:
+                Last Name:<br />
                 <input type="text" value={doctorData.last_name} name="last_name" onChange={handleDoctorForm} />
             </label>
             <label>
-                Specialty:
+                Specialty:<br />
                 <textarea value={doctorData.specialty} name="specialty" onChange={handleDoctorForm} />
             </label>
-            <input type="submit" value="Submit" />
+            <input style={{width: "100px", alignSelf: "flex-end"}} type="submit" value="Submit" />
         </form>
     </>
     )

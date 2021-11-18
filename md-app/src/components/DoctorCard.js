@@ -1,8 +1,9 @@
+
 import DoctorForm from "./DoctorForm";
 
 function DoctorCard({doctor, setClicked, handleDoctorDelete, doctorData, handleDoctorForm, handleDoctorEdit, setEditing, setDoctorData, editing}) {
     return (
-        <>
+        < div style={doctorInfoCard}>
             {editing ? <DoctorForm doctorData={doctorData} handleDoctorForm={handleDoctorForm} handleDoctorSubmit={handleDoctorEdit} /> 
             :
             <>
@@ -12,8 +13,19 @@ function DoctorCard({doctor, setClicked, handleDoctorDelete, doctorData, handleD
                 <button onClick={() => {handleDoctorDelete(doctor); setClicked(false)}}>Delete Doctor</button>
                 </>
             }
-        </>
+        </ div>
     )
 }
 
 export default DoctorCard
+
+const doctorInfoCard = {
+  border: `solid 5px #121592`,
+  borderRadius: `40px`,
+  height: `60%`,
+  width: `500px`,
+  padding: `25px`,
+  marginTop: `50px`,
+  marginLeft: "auto",
+  marginRight: "auto"
+}

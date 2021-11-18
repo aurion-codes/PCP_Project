@@ -1,9 +1,16 @@
+import logo from "../images/DBMDlogo.png";
+
+const imgStyle = {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "50px"
+}
+
 function Header() {
     return (
-        <>
-            <h1>DB, MD</h1>
-            <h4>The DB with a Degree</h4>
-        </>
+        <div style={imgStyle}>
+            <img src={logo} alt="logo" />
+        </div>
     )
 }
 
