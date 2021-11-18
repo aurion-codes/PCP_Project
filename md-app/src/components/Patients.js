@@ -3,12 +3,13 @@ import PatientCard from "./PatientCard"
 
 const listStyles = {
     listStyleType: "none",
-    background: "lightblue",
+    background: "#b6e1fc",
     width: "300px",
     marginLeft:"100px",
     padding: "10px",
-    border: "none",
-    borderRadius: "10px"
+    border: `solid 2px #121592`,
+    borderRadius: "10px",
+    boxShadow: `3px 3px 5px #121592`
 }
 
 const listItemStyles = {
@@ -19,7 +20,7 @@ const listItemStyles = {
 
 function Patients({patient, setPatient, patients, myDoctor, setMyDoctor, doctors, handlePatientDelete, handlePatientForm, handlePatientEdit, setPatientData, patientData, editing, setEditing}) {
     let patientList = patients.map(patient => {
-        return <li className="listItem" style={listItemStyles} key={patient.id} onClick={() => handleClick(patient)} >{patient.first_name} {patient.last_name}</li>
+        return <li className="listItem" style={listItemStyles} key={patient.id} onClick={() => {handleClick(patient); setEditing(false)}} >{patient.first_name} {patient.last_name}</li>
     })
     const [clicked, setClicked] = useState(false)
 

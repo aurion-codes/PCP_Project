@@ -183,7 +183,7 @@ function App() {
     <div>
       <Header />
         <BrowserRouter>
-        <NavBar />
+        <NavBar setEditing={setEditing} />
           <Routes>
             <Route path="/" element={<p style={{textAlign: "center"}} >Welcome! Pick something from the NavBar to start!</p>}/>
             <Route path='/doctors' element={
