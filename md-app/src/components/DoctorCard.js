@@ -11,7 +11,7 @@ function DoctorCard({doctor, setClicked, handleDoctorDelete, doctorData, handleD
         .then(data => {
             setPatients(data)
         })
-    }, [])
+    }, [doctor])
 
     let patientList = patients.map(patient => {
         return <li key={patient.id} >{patient.first_name} {patient.last_name}</li>
