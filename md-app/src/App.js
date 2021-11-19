@@ -185,7 +185,7 @@ function App() {
         <BrowserRouter>
         <NavBar setEditing={setEditing} />
           <Routes>
-            <Route path="/" element={<p style={{textAlign: "center"}} >Welcome! Pick something from the NavBar to start!</p>}/>
+            <Route path="/" element={<p style={{textAlign: "center"}} >Welcome to DB,MD! The perfect portal for your Facilities Medical Doctor and Patient managment. Pick something from the NavBar to start!</p>}/>
             <Route path='/doctors' element={
               <Doctors 
                 doctor={doctor}
