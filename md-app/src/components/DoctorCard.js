@@ -24,7 +24,7 @@ function DoctorCard({doctor, setClicked, handleDoctorDelete, doctorData, handleD
             <>
                 <h1>Dr. {doctor.first_name} {doctor.last_name}</h1>
                 <h2>Department: {doctor.specialty}</h2>
-                <h3>Patients:</h3>
+                <h3>Patient(s):</h3>
                 <ul>
                     {patientList.length === 0 ? <p>None</p> : patientList}
                 </ul>
